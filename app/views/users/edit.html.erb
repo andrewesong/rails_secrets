@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+	<div class='container'>
+		<form action='/users/<%= @user.id %>' method='post'>
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<input type="hidden" name="_method" value="patch">
+		<p>
+			<label>Name</label>
+			<input class='edit_input'type='name' name='user[name]' value='<%= @user.name%>'>
+		</p>
+		<p>
+			<label>Email</label>
+			<input class='edit_input' type='email' name='user[email]' value='<%= @user.email%>'>
+		</p>
+		<p>
+			<button id='update_button' type='submit'>Update</button>
+		</p>
+		</form>
+		<form action='/users/<%= @user.id %>' method='post'>
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input type='hidden' name='_method' value ='delete'>
+			<input id='delete_account_button' type='submit' data-confirm='Are you sure?' value='Delete Account'>
+		</form>
+		<p><a href='/users/<%= @user.id %>'>Back</a></p>
+	</div>
+	
+</body>
+</html>

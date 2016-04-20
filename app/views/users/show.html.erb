@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+	<div class='container'>
+		<h1>Welcome, <%= @user.name %>!</h1>
+		<a href='/users/<%= @user.id %>/edit'>Edit Profile</a>
+		<p><a href='/secrets'>All Secrets</a></p>
+		<h2>My Secrets</h2>
+		<% if @secrets %>
+			<% @secrets.each do |secrets| %>
+				<p><%= secrets.content %> - <%= secrets.likes.count%> likes</p>
+					<form action='/secrets/<%= secrets.id %>' method='post'>
+						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+						<input type='hidden' name='_method' value ='Delete'>
+						<button class='delete_button' type='submit' name='Delete'>Delete</button>
+					</form>
+			<% end %>
+		<% end %>		
+		<form action='/secrets/<%= @user.id %>/create' method='post'>
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<textarea id='text_box' name='secret[content]'></textarea>
+			<p><input id='create_button' type='submit' value='Create Secret'></p>
+		</form>
+	</div>
+</body>
+</html>
+

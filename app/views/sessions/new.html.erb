@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+	<div class="container">
+		<h1>Log In</h1>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |errors| %>
+				<li><%= errors %></li>
+			<% end %>
+		<% end %>	
+
+		<form action = '/sessions' method = 'post'>
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<p>
+				<label for='email'>Email</label>
+				<input type='email' name='email'>
+			</p>
+			<p>
+				<label for='password'>Password</label>
+				<input type='password' name='password'>
+			</p>
+			<button id='login_button' type='submit'>Log In</button>
+		</form>
+		<p><a href='/users/new'>New member? Click here</a></p>
+	</div>
+</body>
+</html>
+
+
+
+
+

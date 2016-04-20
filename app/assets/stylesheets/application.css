@@ -1,0 +1,59 @@
+
+*{
+/*	outline: 1px dotted green;*/
+
+}
+div.container{
+	width: 970px;
+	margin: 0px auto;
+	border: 1px solid black;
+	padding: 10px;
+}
+#text_box{
+	width: 350px;
+	height: 75px;
+	margin-top: 20px;
+}
+.delete_button, #like_button, #unlike_button{
+	width: 50px;
+	height: 20px;
+}
+#like_button{
+	background-color: green;
+	color: white;
+}
+.delete_button{
+	background-color: #8b0000;
+	color: white;
+}
+#unlike_button{
+	background-color: #3366ff;
+	color: white;
+}
+#create_button{
+	width: 100px;
+	background-color: black;
+	color: white;
+}
+#form_like, #form_unlike, #form_delete{
+	display:inline-block;
+}
+#delete_account_button{
+	background-color: #8b0000;
+	color: white;
+}
+#update_button{
+	background-color: #3366ff;
+	color: white;
+}
+.edit_input{
+	width: 200px;
+}
+#login_button, #join_button{
+	background-color: black;
+	color: white;
+	width: 75px;
+}
+#logout_button{
+	color: green;
+}

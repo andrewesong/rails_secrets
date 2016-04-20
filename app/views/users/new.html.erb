@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+	<div class='container'>
+		<% if flash[:regerrors] %>
+			<% flash[:regerrors].each do |errors| %>
+				<li><%= errors %></li>
+			<% end %>
+		<% end %>	
+
+		<h1>Register</h1>
+		<form action='/users/' method='post'>
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p>
+			<label>Name</label>
+			<input type='text' name='user[name]'>
+		</p>
+		<p>
+			<label>Email</label>
+			<input type='email' name='user[email]'>
+		</p>
+		<p>
+			<label>Password</label>
+			<input type='password' name='user[password]'>
+		</p>
+		<p>
+			<label>Confirm Password</label>
+			<input type='password' name='user[password_confirmation]'>
+		</p>
+		<p>
+			<button id="join_button" type='submit'>Join</button>
+		</p>
+		</form>
+		<p><a href='/sessions/new'>Already a member? Click here</a></p>
+	</div>
+</body>
+</html>
+
